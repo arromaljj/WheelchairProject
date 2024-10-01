@@ -1,0 +1,20 @@
+- git:
+    local-name: dwa_planner
+    uri: https://github.com/amslabtech/dwa_planner.git
+    version: master
+- git:
+    local-name: slam_toolbox
+    uri: https://github.com/SteveMacenski/slam_toolbox.git
+    version: noetic-devel
+- git:
+    local-name: geometry2
+    uri: https://github.com/ros/geometry2.git
+    version: noetic-devel
+- git:
+    local-name: laser_filters
+    uri: https://github.com/ros-perception/laser_filters.git
+    version: noetic-devel
+- git:
+    local-name: rplidar_ros
+    uri: https://github.com/Slamtec/rplidar_ros.git
+    version: master
