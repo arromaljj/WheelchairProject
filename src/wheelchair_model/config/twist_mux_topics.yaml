@@ -1,0 +1,17 @@
+topics:
+-
+  name: local_navigation
+  topic: local_vel
+  timeout: 1.0
+  priority: 50
+-
+  name: controller
+  topic: controller_vel
+  timeout: 1.0
+  priority: 100
+
+-
+  name: cancel_goals_zero_velocity
+  topic: cancel_goals_zero_velocity
+  timeout: 1.0
+  priority: 255

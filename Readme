@@ -1,0 +1,3 @@
+
+Run this to allow display from docker
+xhost +local:root

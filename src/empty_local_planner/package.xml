@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>empty_local_planner</name>
+  <version>0.0.0</version>
+  <description>The empty_local_planner package</description>
+
+  <maintainer email="widogast@todo.todo">widogast</maintainer>
+  <license>TODO</license>
+
+  <build_depend>roscpp pluginlib</build_depend>
+  <exec_depend>nav_core costmap_2d tf2_ros</exec_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

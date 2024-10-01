@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <!-- starting position -->
+  <arg name="x" default='0'/>
+  <arg name="y" default='0'/>
+  <arg name="z" default='0.20'/>
+  <arg name="roll" default='0'/>
+  <arg name="pitch" default='0'/>
+  <arg name="yaw" default='0'/>
+
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find wheelchair_model)/urdf/wheelchair_diffdrive.xacro'" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+	  <arg name="gui" value="true" />
+  </include>
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args=" -x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf 
+        -model wheelchair_robot -param robot_description" respawn="false" output="screen" />
+
+
+  <arg name="rvizconfig" default="$(find wheelchair_model)/config/wheelchair_diffdrive.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  
+  <!-- this transform publisher is a temporary fix for the missing transform from world to base_link -->
+  <!-- iths transfrom is needed for LaserScan to work the implementation of slam sohuld hopefully resolve this issue -->
+  <node pkg="tf" type="static_transform_publisher" name="world_to_base_link_transform" args="-0.48 0 0.12 0 0 0 1 /world /base_link 40" />
+
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+
+  <node pkg="amcl" type="amcl" name="amcl">
+    <param name="use_sim_time" value="true" />  # Set to false if using real robot time
+    </node>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base">
+    <param name="base_local_planner" value="empty_local_planner/EmptyLocalPlanner" />  # Use your plugin
+    <param name="controller_frequency" value="10" />  # Adjust frequency as needed
+    <param name="planning_frequency" value="5" />  # Adjust frequency as needed
+    </node>
+
+  <node pkg="rviz" type="rviz" name="rviz">
+    <param name="config" value="$(find empty_local_planner)/rviz/empty_planner.rviz" />  # Adjust config file path
+  </node>
+
+</launch>

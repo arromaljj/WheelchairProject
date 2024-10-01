@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" default="$(find gazebo_ros_world)/world/my_world.world" /> -->
+        <arg name="world_name" default="$(find wheelchair_model)/world/test_world.world" /> 
+          <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(arg my_world)"/>
+        <arg name="paused" value="false" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="true" />
+        <arg name="verbose" value="true" />
+    </include> 
+
+</launch>

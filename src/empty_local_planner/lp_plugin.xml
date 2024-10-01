@@ -1,0 +1,9 @@
+<library path="lib/lib_empty_local_planner">
+  <class name="empty_local_planner/EmptyLocalPlanner"
+         type="empty_local_planner::EmptyLocalPlanner"
+         base_class_type="nav_core::BaseLocalPlanner">
+    <description>
+      Empty Local Planner Plugin
+    </description>
+  </class>
+</library>

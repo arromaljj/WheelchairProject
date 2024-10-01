@@ -1,0 +1,23 @@
+<launch>
+ <node pkg="dwa_planner" type="dwa_planner" name="dwa_planner" ns="$(arg ns)">
+        <!-- param -->
+        <rosparam command="load" file="$(arg robot_param)"/>
+        <rosparam command="load" file="$(arg dwa_param)"/>
+        <param name="HZ" value="$(arg hz)"/>
+        <param name="USE_SCAN_AS_INPUT" value="$(arg use_scan_as_input)"/>
+        <param name="USE_FOOTPRINT" value="$(arg use_footprint)"/>
+        <param name="USE_PATH_COST" value="$(arg use_path_cost)"/>
+        <param name="SUBSCRIBE_COUNT_TH" value="$(arg subscribe_count_th)"/>
+        <param name="SLEEP_TIME_AFTER_FINISH" value="$(arg sleep_time_after_finish)"/>
+    </node>
+
+  <node if="$(arg name='use_robot_state_pub' value='true')" name="robot_state_pub" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false">
+    <param name="tf_prefix" value="$(arg name='robot_name' value='my_robot')" />
+    ... (other parameters specific to your robot)
+  </node>
+
+  <node if="$(arg name=wheelchair_src value='true')" name="move_base" pkg="move_base" type="move_base" respawn="false">
+    <param name="controller_frequency" value="10.0" />
+    <param name="base_local_planner" value="dwa_package/DWAPlanner" />  ... (other parameters specific to navigation stack)
+  </node>
+</launch>

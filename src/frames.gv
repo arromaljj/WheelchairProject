@@ -1,0 +1,21 @@
+digraph G {
+"base_link" -> "world"[label=" Broadcaster: /world_to_base_link_transform\nAverage rate: 115.901\nBuffer length: 4.987\nMost recent transform: 850.77\nOldest transform: 845.783\n"];
+"odom" -> "base_link"[label=" Broadcaster: /gazebo\nAverage rate: 10.225\nBuffer length: 4.89\nMost recent transform: 850.684\nOldest transform: 845.794\n"];
+"map" -> "odom"[label=" Broadcaster: /slam_toolbox\nAverage rate: 48.785\nBuffer length: 4.981\nMost recent transform: 850.965\nOldest transform: 845.984\n"];
+"wheelchair_base" -> "chair_seat"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "wheelchair_base"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"wheelchair_base" -> "left_base_block"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"lidar_mount" -> "lidar"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"wheelchair_base" -> "lidar_mount"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"wheelchair_base" -> "right_base_block"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"wheelchair_base" -> "left_back_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+"wheelchair_base" -> "left_front_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+"wheelchair_base" -> "left_large_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+"wheelchair_base" -> "right_back_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+"wheelchair_base" -> "right_front_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+"wheelchair_base" -> "right_large_wheel"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.196\nBuffer length: 4.904\nMost recent transform: 850.699\nOldest transform: 845.795\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 850.788"[ shape=plaintext ] ;
+}->"map";
+}

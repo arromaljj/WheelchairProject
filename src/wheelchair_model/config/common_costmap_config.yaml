@@ -1,0 +1,9 @@
+obstacle_range: 4.5
+raytrace_range: 6.0
+
+footprint: [[0.7,0.6], [-0.7,0.6], [0.7,-0.6], [-0.7,-0.6]]
+inflation_radius: 0.4
+
+observation_sources: lidar_laser_scan #time_of_flight_sensor
+
+lidar_laser_scan: {sensor_frame: lidar, data_type: LaserScan, topic: /scan_filtered, marking: true, clearing: true}
